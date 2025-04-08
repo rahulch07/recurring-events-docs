@@ -14,6 +14,7 @@ CREATE TABLE venue_availability_rules (
 );
 ```
 This defines when venues are generally available (operating hours).
+
 2. Venue Booking Instances Table
 ```
 CREATE TABLE venue_booking_instances (
