@@ -56,3 +56,22 @@ CREATE INDEX idx_booking_exceptions_event ON venue_booking_exceptions(base_recur
 CREATE INDEX idx_booking_exceptions_date ON venue_booking_exceptions(exception_date);
 This tracks canceled/modified instances in a recurring venue booking series.
 ```
+4. Redis Cache Structure
+   
+Venue Availability Cache”:
+```
+venue:{venueId}:availability:{YYYY-MM-DD}
+```
+ Stores a bitmap of 15-minute time slots for fast availability checking.
+Future Bookings List
+```
+venue:{venueId}:bookings
+```
+Sorted set with Unix timestamps as scores and event IDs as values.
+Event-Venue Mapping:
+```
+event:{eventId}:venues
+```
+Set containing venue IDs associated with this event.
+
+
